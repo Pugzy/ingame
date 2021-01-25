@@ -15,6 +15,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.UUID;
 import java.util.stream.Collectors;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
@@ -143,6 +144,10 @@ public class RankedManager implements Listener {
 
   public boolean isManuallyCanceled() {
     return manuallyCanceled;
+  }
+
+  public void manualBan(UUID uniqueId) {
+    Ingame.get().getApiManager().postPlayerPunishment(uniqueId);
   }
 
   @EventHandler
